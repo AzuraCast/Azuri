@@ -4,7 +4,7 @@
   "description": "A simple radio bot to connect AzuraCast and Discord",
   "main": "app.js",
   "scripts": {
-    "test": "exit 1"
+    "test": "exit 0"
   },
   "keywords": [
     "AzuraCast",
