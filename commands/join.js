@@ -11,6 +11,29 @@ module.exports = {
     ],
     description: L._U('en', 'desc_join'),
     execute: async (client, guildData, message, ...args) => {
+        if(message === 'botHomeRoom') {
+            radioURL = guildData.url;
+            voiceChannel = guildData.home; 
+
+            let channel = client.channels.cache.get(guildData.home);
+            try {
+                connection = await channel.join();
+            } catch (e) {
+                return message.reply(L._U(guildData.locale, 'no_join'));
+            };
+    
+            try {
+                dispatcher = connection.play(radioURL);  
+            } catch (e) {
+                message.reply(L._U(guildData.locale, 'stream_error'));
+            }
+    
+            module.exports.connection = connection;
+            module.exports.dispatcher = dispatcher;
+
+            return;
+        }
+
         if(!message.guild) return message.reply(L._U(guildData.locale, 'server_only'));
         if(!guildData.url) return message.reply(L._U(guildData.locale, 'no_radio_url'));
 

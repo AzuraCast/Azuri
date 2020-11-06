@@ -5,6 +5,7 @@ const guildData = require('./data/guilds.json');
 const fs = require('fs');
 const prefix = '/';
 const Utils = require('./utils/utils');
+const voiceCtl = require('./commands/join');
 
 const client = new Discord.Client({
     autoReconnect: true
@@ -35,6 +36,12 @@ client.on('ready', async () => {
     console.log(`Bot has Started`);
 
     client.user.setActivity("The tunes", { type: "LISTENING" });
+
+    guildData.forEach(servData => {
+        if(!serverData.home) return;
+
+        voiceCtl.execute(client, servData, "botHomeRoom");
+    })
 });
 
 client.on('guildDelete', (guild) => {
