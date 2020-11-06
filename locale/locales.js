@@ -1,6 +1,5 @@
 const fs = require('fs');
 require('dotenv').config();
-const env = process.env;
 
 let locales = [];
 const localeFiles = fs.readdirSync('./locale').filter(file => file.endsWith('.json'));

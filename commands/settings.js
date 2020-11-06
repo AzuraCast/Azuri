@@ -15,7 +15,7 @@ module.exports = {
     description: L._U('en', 'desc_settings'),
     execute: (client, guildData, message, ...args) => {
         if(!message.guild) return message.reply(L._U(guildData.locale, 'server_only'));
-        if(!args) return message.reply(L._U(guildData.locale, 'missing_args'));
+        if(!args.length) return message.reply(L._U(guildData.locale, 'missing_args'));
         if(!message.channel.permissionsFor(message.member).has('MANAGE_GUILD') || !message.channel.permissionsFor(message.member).has('ADMINISTRATOR')) return message.reply("❌ - Oh No! You've not got permission to use that!");
         if(args[0][0] === 'url') {
             if(args[0][1]) {
@@ -220,7 +220,7 @@ module.exports = {
                     }
                 }
             } else {
-                
+                return message.reply(L._U(guildData.locale, 'missing_args'));
             }
 
             console.log("ee")

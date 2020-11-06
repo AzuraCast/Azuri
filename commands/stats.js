@@ -1,5 +1,4 @@
 const L = require('../locale/locales')
-const voice = require('./join');
 
 module.exports = {
     name: 'stats',

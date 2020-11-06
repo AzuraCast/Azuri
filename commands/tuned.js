@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const axios = require('axios');
 const L = require('../locale/locales')
 

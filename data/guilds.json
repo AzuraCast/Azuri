@@ -1,1 +1,1 @@
-[{"id":"773951937775140875","timezone":"Europe/London","locale":"en","home":"773951938974318675","url":"https://radio.truckers.fm/","api":"https://azura.truckers.fm/api/nowplaying/1","commands":{"ping":{"type":"role","id":"774037783354146866"}},"prefix":"!"}]
+[{"id":"773951937775140875","timezone":"Europe/London","locale":"en","home":"773951938974318675","url":"https://radio.truckers.fm/","api":"https://azura.truckers.fm/api/nowplaying/1","commands":{"ping":{"type":"role","id":"774037783354146866"}},"prefix":"/"}]

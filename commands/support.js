@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
 const L = require('../locale/locales')
-require('dotenv').config();
-const env = process.env;
 
 module.exports = {
     name: 'support',
