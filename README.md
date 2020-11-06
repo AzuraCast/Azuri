@@ -1,5 +1,6 @@
 [AzuraCast]: (https://www.azuracast.com/)
 [Discord]: (https://discord.com)
+[Invite Link]: (https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
 ![Azuri Logo](https://i.ninjalabs.dev/hdcgwht.png)
 
 # Azuri: A [Discord] bot for [AzuraCast]
@@ -9,12 +10,19 @@
 [![Ethical Open Source](https://img.shields.io/badge/open-ethical-%234baaaa)](https://ethicalsource.dev/definition/)
 [![DeepScan grade](https://deepscan.io/api/teams/11651/projects/14572/branches/274342/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11651&pid=14572&bid=274342)
 [![Twitter Follow](https://img.shields.io/twitter/follow/AzuriApp.svg?style=social&label=Follow)](https://twitter.com/AzuriApp)
+[![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
 
 **Azuri** is a simple but powerful [Discord] bot to intergrate the open-source radio host [AzuraCast] within your [Discord] community.
+
+### Invite
+[![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
 
 ![Overview Photos](https://i.ninjalabs.dev/pdy65lq.png)
 
 **Azuri** is currently in active development with new features and bugs fixed on the daily and is not a *final product* in any means. Azuri was created to support the new and up coming radio's that take use of [AzuraCast] and provide a platform to bride the gap from the community to the radio. 
+
+## Hosted or Self Hosted?
+**Azuri** is hosted allowing anyone to invite the bot using [Invite Link] into their server and experiance it to it's full potential. Want to go the extra mile and make it custom? Fllow the steps below.
 
 ## Prerequisites
  - [**NodeJS**](https://nodejs.org/): >= 12.18.4
