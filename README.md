@@ -1,6 +1,5 @@
 [AzuraCast]: (https://www.azuracast.com/)
 [Discord]: (https://discord.com)
-[Invite-Link]: (https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
 ![Azuri Logo](https://i.ninjalabs.dev/hdcgwht.png)
 
 # Azuri: A [Discord] bot for [AzuraCast]
@@ -22,7 +21,7 @@
 **Azuri** is currently in active development with new features and bugs fixed on the daily and is not a *final product* in any means. Azuri was created to support the new and up coming radio's that take use of [AzuraCast] and provide a platform to bride the gap from the community to the radio. 
 
 ## Hosted or Self Hosted?
-**Azuri** is hosted allowing anyone to invite the bot using [Invite-Link] into their server and experiance it to it's full potential. Want to go the extra mile and make it custom? Fllow the steps below.
+**Azuri** is hosted allowing anyone to invite the bot using [Invite Link]([![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)) into their server and experiance it to it's full potential. Want to go the extra mile and make it custom? Fllow the steps below.
 
 ## Prerequisites
  - [**NodeJS**](https://nodejs.org/): >= 12.18.4
@@ -35,6 +34,8 @@ To install and run follow these steps:
   1. `npm install`
   2. Edit `.env` with your `BOT_TOKEN`*¹ and other options
   3. `node app.js` ***Note:*** DO **NOT** run via `index.js` the bot uses [sharding](https://discordjs.guide/sharding/) to allow scalability and is required to run through `app.js`
+
+**¹ - This can be generated [here](https://discord.com/developers/applications) view a guide [here](https://discordpy.readthedocs.io/en/latest/discord.html)*
 
 ## What's used
 We use multiple packages to make sure the bot is the easiest to use and navigate for the end-user. 
