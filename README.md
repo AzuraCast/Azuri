@@ -1,6 +1,6 @@
 [AzuraCast]: (https://www.azuracast.com/)
 [Discord]: (https://discord.com)
-![Azuri Logo](https://i.ninjalabs.dev/ih7mkp8.png)
+![Azuri Logo](https://i.ninjalabs.dev/spap2uv.png)
 
 # Azuri: A [Discord] bot for [AzuraCast]
 
@@ -12,7 +12,7 @@
 
 **Azuri** is a simple but powerful [Discord] bot to intergrate the open-source radio host [AzuraCast] within your [Discord] community.
 
-![Overview Photos](https://i.ninjalabs.dev/2wclpa4.png)
+![Overview Photos](https://i.ninjalabs.dev/uvstnoa.png)
 
 **Azuri** is currently in active development with new features and bugs fixed on the daily and is not a *final product* in any means. Azuri was created to support the new and up coming radio's that take use of [AzuraCast] and provide a platform to bride the gap from the community to the radio. 
 
