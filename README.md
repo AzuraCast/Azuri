@@ -16,7 +16,7 @@
 ### Invite
 [![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
 
-![Overview Photos](https://i.ninjalabs.dev/pdy65lq.png)
+![Overview Photos](https://i.ninjalabs.dev/onbicck.png)
 
 **Azuri** is currently in active development with new features and bugs fixed on the daily and is not a *final product* in any means. Azuri was created to support the new and up coming radio's that take use of [AzuraCast] and provide a platform to bride the gap from the community to the radio. 
 
