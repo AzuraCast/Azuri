@@ -1,8 +1,6 @@
 const fs = require('fs');
 require('dotenv').config();
 const env = process.env;
-const package = require('../package.json');
-const github = require('octonode');
 
 getPackageName = () => {
     let repo = package.repository.url;
@@ -35,16 +33,4 @@ module.exports.logError = (time, content) => {
         if(err) console.log(err);
     })
     console.log("New Log Created - " + env.LOG_DIR + time + ".txt")
-}
-
-module.exports.checkForUpdate = () => {
-    ghrepo.releases(function(_, data) {
-        let gitVersion = data[0].tag_name;
-        let gitUrl = data[0].html_url;
-        let localVersion = package.version;
-
-        if(localVersion < gitVersion) {
-            console.log(`[ UPDATE ] There's a new version available! ${gitVersion} - ${gitUrl}`)
-        }
-    })
 }

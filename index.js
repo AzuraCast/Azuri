@@ -3,7 +3,6 @@ const env = process.env;
 const Discord = require('discord.js');
 const guildData = require('./data/guilds.json');
 const fs = require('fs');
-const prefix = '/';
 const Utils = require('./utils/utils');
 const voiceCtl = require('./commands/join');
 

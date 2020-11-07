@@ -24,8 +24,7 @@
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
     "ffmpeg-static": "^4.2.7",
-    "fs": "0.0.1-security",
-    "octonode": "^0.9.5"
+    "fs": "0.0.1-security"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
