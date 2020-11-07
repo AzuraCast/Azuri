@@ -54,6 +54,9 @@ client.on('guildCreate', (guild) => {
 })
 
 client.on('message', ( message ) => {
+    if(message.author.bot) return;
+    if(!message.guild) return message.reply("⚠ - Sorry my DM's are closed!");
+
     let serverData = GuildUtils.getForGuild(message.guild);
 
     var prefix = process.env.DEFAULT_PREFIX;
@@ -69,7 +72,6 @@ client.on('message', ( message ) => {
         const cmd = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
         try {
-            if(!serverData) return message.reply("🚫 - Oh no! There's been an issue while setting up! Please run `/settings init`");
             
             var serverCommands = serverData.commands;
 
