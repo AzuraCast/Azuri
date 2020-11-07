@@ -37,7 +37,7 @@ client.on('ready', async () => {
     var activityType = process.env.ACTIVITY_TYPE;
     var statusType = process.env.STATUS_TYPE;
     client.user.setActivity(activityMessage, { type: activityType });
-    client.user.setStatus(statusType);
+    if(statusType) client.user.setStatus(statusType);
 
     let guildData = GuildUtils.loadGuildData();
     guildData.forEach(serverData => {
