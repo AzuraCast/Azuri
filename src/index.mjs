@@ -33,7 +33,11 @@ client.on('ready', async () => {
     console.log(`Bot has Started`);
 
     var prefix = process.env.DEFAULT_PREFIX;
-    client.user.setActivity("AzuraCast! " + prefix + "help to get started.", { type: "LISTENING" });
+    var activityMessage = process.env.STATUS_MESSAGE.replace('{prefix}', prefix);
+    var activityType = process.env.ACTIVITY_TYPE;
+    var statusType = process.env.STATUS_TYPE;
+    client.user.setActivity(activityMessage, { type: activityType });
+    client.user.setStatus(statusType);
 
     let guildData = GuildUtils.loadGuildData();
     guildData.forEach(serverData => {
