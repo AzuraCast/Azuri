@@ -88,14 +88,28 @@ export default {
 
             case 'locale':
                 if(args[0][1]) {
-                    serverData.locale = args[0][1].toLowerCase();
-                    GuildUtils.writeForGuild(serverData);
-    
-                    console.log(`Changed Locale for ${message.guild.name} (${message.guild.id}) to ${args[0][1]}`);
+                    switch (args[0][1]) {
+                        case 'avaiable':
+                            const availableLocalesEmbed = new Discord.MessageEmbed()
+                                .setColor('#1f8df5')
+                                .setTitle(`Azuri - ${L._U(serverData.locale, 'valid_translation')}`)
+                                .setDescription(L.getAvailableLocales())
+                                .setTimestamp();
+                            
+                            return message.channel.send(availableLocalesEmbed);
+                        break;
 
-                    return message.reply(`📫 ${L._U(serverData.locale, 'set')}!`);
+                        default:
+                            serverData.locale = args[0][1].toLowerCase();
+                            if(!L.isValidLocale(serverData.locale)) return message.reply(`${L._U(serverData.locale, 'missing_args')}`);
+                            GuildUtils.writeForGuild(serverData);
+            
+                            console.log(`Changed Locale for ${message.guild.name} (${message.guild.id}) to ${args[0][1]}`);
+                            return message.reply(`📫 ${L._U(serverData.locale, 'set')}!`);
+                        break;
+                    }
                 } else {
-                    return message.reply(`${L._U(serverData.locale, 'current_locale')}: ${serverData.locale}`);
+                    return message.reply(`${L._U(serverData.locale, 'current_locale')}: \`${serverData.locale}\``);
                 }
             break;
 
@@ -189,11 +203,15 @@ export default {
                         },
                         { 
                             name: `${prefix}settings permission \`<role/user/permission>\` \`<command>\` \`<id>\``,
-                            value: "Setup server locale",
+                            value: "Set permissions bound to commands",
                         },
                         { 
                             name: `${prefix}settings prefix \`<prefix>\``,
                             value: "Setup server bot commands prefix",
+                        },
+                        { 
+                            name: `${prefix}settings locale \`<avaiable/locale code>\``,
+                            value: "Set server locale",
                         }
                     )
                     .setTimestamp();

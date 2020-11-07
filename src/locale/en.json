@@ -14,7 +14,7 @@
         "not_connected": "🎧 - Don't worry! I'm not connected.",
         "now_playing": "Now Playing",
         "http_error": "🚫 - There's been an issue getting that information! Try again.",
-        "stream_error": "🚫 - There was an issue starting the steam.",
+        "stream_error": "🚫 - There was an issue starting the stream.",
         "ping": "🏓 - Pong",
         "recent_tracks": "Recent Tracks",
         "generated_at": "Generated at",
@@ -50,6 +50,7 @@
         "desc_tuned": "View current listener numbers.",
         "invite": "Discord Invite",
         "setting": "Settings",
-        "current_prefix": "The current prefix is"
+        "current_prefix": "The current prefix is",
+        "valid_translation": "Available Translations"
     }
 }
