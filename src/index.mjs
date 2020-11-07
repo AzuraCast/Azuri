@@ -1,20 +1,24 @@
-require('dotenv').config();
-const env = process.env;
-const Discord = require('discord.js');
-const fs = require('fs');
-const Utils = require('./utils/utils');
-const voiceCtl = require('./commands/join');
-const guildData = require('./persist/guilds.json');
+import dotenv from 'dotenv';
+import Discord from 'discord.js';
+import fs from 'fs';
+import * as Utils from './utils/utils.mjs';
+import * as GuildUtils from './utils/guilds.mjs';
+import voiceCtl from './commands/join.mjs';
+
+dotenv.config();
 
 const client = new Discord.Client({
     autoReconnect: true
 });
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-commandFiles.forEach(file => {
-    const command = require(`./commands/${file}`);
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.mjs'));
+
+commandFiles.forEach(async (file) => {
+    let commandObj = await import(`./commands/${file}`);
+    let command = commandObj.default;
+    
     client.commands.set(command.name, command);
     console.log(`Registered Command - ${command.name}`);
 
@@ -25,18 +29,13 @@ commandFiles.forEach(file => {
     };
 });
 
-let serverData = {};
-guildData.forEach(guild => {
-    serverData = guild;
-});
-
-
 client.on('ready', async () => {
     console.log(`Bot has Started`);
 
-    var prefix = env.DEFAULT_PREFIX;
+    var prefix = process.env.DEFAULT_PREFIX;
     client.user.setActivity("AzuraCast! " + prefix + "help to get started.", { type: "LISTENING" });
 
+    let guildData = GuildUtils.loadGuildData();
     guildData.forEach(servData => {
         if(!serverData.home) return;
 
@@ -49,31 +48,15 @@ client.on('guildDelete', (guild) => {
 })
 
 client.on('guildCreate', (guild) => {
-    if(guildData.find(serv => serv.id === guild.id)) {
-        return console.log(`The bot was added a returning guild: ${guild.name} (${guild.id})`);
-    } else {
-        data = {
-            "id": `${guild.id}`,
-            "timezone": "ETC/UTC",
-            "locale": "en",
-            "home": null,
-            "url": null,
-            "api": null,
-            "commands": {}
-        }
-        guildData.push(data)
+    GuildUtils.getForGuild(guild);
     
-        fs.writeFileSync('./persist/guilds.json', JSON.stringify(guildData), (err) => {
-            if (err) console.log(err);
-            console.log("done")
-        })
-    
-        return console.log(`The bot was added to: ${guild.name} (${guild.id})`);
-    }
+    return console.log(`The bot was added to: ${guild.name} (${guild.id})`);
 })
 
 client.on('message', ( message ) => {
-    var prefix = env.DEFAULT_PREFIX;
+    let serverData = GuildUtils.getForGuild(message.guild);
+
+    var prefix = process.env.DEFAULT_PREFIX;
     if(serverData.prefix) prefix = serverData.prefix;
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -117,4 +100,4 @@ client.on('message', ( message ) => {
     }
 });
 
-client.login(env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);

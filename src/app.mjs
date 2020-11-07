@@ -1,7 +1,8 @@
-const { ShardingManager } = require('discord.js');
-const fs = require('fs');
-require('dotenv').config();
-const env = process.env;
+import dotenv from 'dotenv';
+import { ShardingManager } from 'discord.js';
+import fs from 'fs';
+
+dotenv.config();
 
 if (!fs.existsSync('./persist/guilds.json')) {
     fs.copyFile('./persist/guilds.json.example', './persist/guilds.json', (err) => { 
@@ -11,6 +12,6 @@ if (!fs.existsSync('./persist/guilds.json')) {
     });
 }
 
-const manager = new ShardingManager('./index.js', { token: env.BOT_TOKEN });
+const manager = new ShardingManager('./index.mjs', { token: process.env.BOT_TOKEN });
 manager.on('shardCreate', shard => console.log(`Starting Shard: ${shard.id}`));
 manager.spawn();

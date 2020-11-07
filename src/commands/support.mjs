@@ -1,7 +1,7 @@
-const Discord = require('discord.js');
-const L = require('../locale/locales')
+import Discord from 'discord.js';
+import * as L from '../locale/locales.mjs';
 
-module.exports = {
+export default {
     name: 'support',
     aliases: [
         'ticket',
@@ -23,4 +23,4 @@ module.exports = {
 
         message.channel.send(supportEmbed)
     }
-}
+};

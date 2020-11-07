@@ -1,8 +1,8 @@
-const L = require('../locale/locales')
+import * as L from '../locale/locales.mjs';
 
 let connection, dispatcher, radioURL, voiceChannel;
 
-module.exports = {
+export default {
     name: 'join',
     aliases: [
         'j',
@@ -75,4 +75,4 @@ module.exports = {
         module.exports.connection = connection;
         module.exports.dispatcher = dispatcher;
     }
-}
+};
