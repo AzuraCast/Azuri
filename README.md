@@ -50,8 +50,6 @@ We use multiple packages to make sure the bot is the easiest to use and navigate
 
 [fs](https://www.npmjs.com/package/fs) used for storing data in files
 
-[octonode](https://www.npmjs.com/package/octonode) used for version checking against Github
-
 *Dev Resources*
 
 [nodemon](https://www.npmjs.com/package/nodemon) hot reloading for development
