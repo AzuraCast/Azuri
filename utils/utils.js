@@ -2,16 +2,6 @@ const fs = require('fs');
 require('dotenv').config();
 const env = process.env;
 
-getPackageName = () => {
-    let repo = package.repository.url;
-    repo = repo.split('/');
-    repo = repo[repo.length - 2] + '/' + repo[repo.length - 1].split('.git')[0];
-    return repo;
-}
-
-const gclient = github.client();
-const ghrepo = gclient.repo(getPackageName())
-
 module.exports.unixConvert = (time, timezone) => {
     if(!timezone) timezone = 'UTC';
     var convertedTime = new Date(time*1000).toLocaleString('en-US', { timeZone: timezone });
