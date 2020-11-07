@@ -9,11 +9,11 @@ export default {
     private: false,
     description: L._U('en', 'desc_help'),
     execute: async (client, guildData, message, ...args) => {
-        commands = [];
+        let commands = [];
         client.commands.forEach(command => {
             if(command.devOnly) return; 
             
-            aliases = '';
+            let aliases = '';
             
             if(command.aliases) {
                 command.aliases.forEach(alias => {

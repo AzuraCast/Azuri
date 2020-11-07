@@ -56,7 +56,7 @@ To install and run follow these steps:
  2. Change into the `src` directory
  3. Edit `.env` with your `BOT_TOKEN`*¹
  4. Run `npm ci`
- 5. Run `node app.js` (***Note:*** DO **NOT** run via `index.js` the bot uses [sharding](https://discordjs.guide/sharding/) to allow scalability and is required to run through `app.js`)
+ 5. Run `npm run azuri`
 
 ## Dependencies Used
 

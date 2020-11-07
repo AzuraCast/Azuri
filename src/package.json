@@ -5,6 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
+    "azuri": "node app.mjs",
     "test": "exit 0"
   },
   "keywords": [

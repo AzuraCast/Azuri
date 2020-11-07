@@ -38,7 +38,7 @@ export function writeForGuild (serverData) {
         }
     });
 
-    fs.writeFile('./persist/guilds.json', JSON.stringify(guildsData), (err, data) => {
+    fs.writeFile('./persist/guilds.json', JSON.stringify(guildData), (err, data) => {
         if (err) { 
             console.error(err);
         };

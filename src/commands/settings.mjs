@@ -1,6 +1,7 @@
 import Discord from 'discord.js';
 import * as L from '../locale/locales.mjs';
 import * as GuildUtils from '../utils/guilds.mjs';
+import axios from 'axios';
 
 export default {
     name: 'settings',
@@ -16,18 +17,6 @@ export default {
         if(!message.channel.permissionsFor(message.member).has('MANAGE_GUILD') || !message.channel.permissionsFor(message.member).has('ADMINISTRATOR')) return message.reply("❌ - Oh No! You've not got permission to use that!");
 
         switch(args[0][0]) {
-            case 'url':
-                if(args[0][1]) {
-                    serverData.url = args[0][1];
-                    GuildUtils.writeForGuild(serverData);
-    
-                    console.log(`Changed Radio URL for ${message.guild.name} (${message.guild.id}) to ${args[0][1]}`);
-                    return message.reply(`📫 ${L._U(serverData.locale, 'set')}!`);
-                } else {
-                    return message.reply(`${L._U(serverData.locale, 'current_radio_url')}: ${serverData.url}`)
-                }
-            break;
-
             case 'home':
                 if(args[0][1]) {
                     let channel = client.channels.cache.get(args[0][1]);
@@ -62,13 +51,38 @@ export default {
             case 'api':
                 if(args[0][1]) {
                     serverData.api = args[0][1];
+
+                    return axios.get(serverData.api).then((response) => {
+                        if (response.data.station) {
+                            if (!serverData.url) {
+                                serverData.url = response.data.station.listen_url;
+                            }
+
+                            GuildUtils.writeForGuild(serverData);
+
+                            console.log(`Changed API URL for ${message.guild.name} (${message.guild.id}) to ${args[0][1]}`);
+                        } else {
+                            console.error('API Response did not contain AzuraCast API content.');
+                        }
+                        
+                        return message.reply(`📫 ${L._U(serverData.locale, 'set')}!`);
+                    }).catch((error) => {
+                        console.error(error);
+                    });
+                } else {
+                    return message.reply(`${L._U('serverData.locale, current_api')}: ${serverData.api}`);
+                }
+            break;
+
+            case 'url':
+                if(args[0][1]) {
+                    serverData.url = args[0][1];
                     GuildUtils.writeForGuild(serverData);
     
-                    console.log(`Changed API URL for ${message.guild.name} (${message.guild.id}) to ${args[0][1]}`);
-
+                    console.log(`Changed Radio URL for ${message.guild.name} (${message.guild.id}) to ${args[0][1]}`);
                     return message.reply(`📫 ${L._U(serverData.locale, 'set')}!`);
                 } else {
-                    return message.reply(`${L._U('serverData.locale, currnet_api')}: ${serverData.api}`);
+                    return message.reply(`${L._U(serverData.locale, 'current_radio_url')}: ${serverData.url}`)
                 }
             break;
 
@@ -178,7 +192,7 @@ export default {
                             value: "Setup server locale",
                         },
                         { 
-                            name: `${prefix}settings prefix \`<preifx>\``,
+                            name: `${prefix}settings prefix \`<prefix>\``,
                             value: "Setup server bot commands prefix",
                         }
                     )

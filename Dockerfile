@@ -23,4 +23,4 @@ VOLUME /data/data/guilds.json
 
 # Define default command.
 ENTRYPOINT ["/build_entrypoint.sh"]
-CMD ["node", "app.js"]
+CMD ["npm", "run", "azuri"]

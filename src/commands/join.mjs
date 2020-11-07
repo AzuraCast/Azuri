@@ -20,17 +20,13 @@ export default {
                 connection = await channel.join();
             } catch (e) {
                 return message.reply(L._U(guildData.locale, 'no_join'));
-            };
+            }
     
             try {
                 dispatcher = connection.play(radioURL);  
             } catch (e) {
                 message.reply(L._U(guildData.locale, 'stream_error'));
             }
-    
-            module.exports.connection = connection;
-            module.exports.dispatcher = dispatcher;
-
             return;
         }
 
@@ -71,8 +67,5 @@ export default {
         } catch (e) {
             message.reply(L._U(guildData.locale, 'stream_error'));
         }
-
-        module.exports.connection = connection;
-        module.exports.dispatcher = dispatcher;
     }
 };

@@ -36,10 +36,10 @@ client.on('ready', async () => {
     client.user.setActivity("AzuraCast! " + prefix + "help to get started.", { type: "LISTENING" });
 
     let guildData = GuildUtils.loadGuildData();
-    guildData.forEach(servData => {
+    guildData.forEach(serverData => {
         if(!serverData.home) return;
 
-        voiceCtl.execute(client, servData, "botHomeRoom");
+        voiceCtl.execute(client, serverData, "botHomeRoom");
     })
 });
 
