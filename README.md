@@ -11,7 +11,7 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/AzuriApp.svg?style=social&label=Follow)](https://twitter.com/AzuriApp)
 [![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
 
-**Azuri** is a simple but powerful [Discord] bot to intergrate the open-source radio host [AzuraCast] within your [Discord] community.
+**Azuri** is a simple but powerful [Discord] bot to intergrate the open-source web radio management suite [AzuraCast] into your [Discord] community.
 
 ### Invite
 [![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
@@ -23,21 +23,43 @@
 ## Hosted or Self Hosted?
 **Azuri** is hosted allowing anyone to invite the bot using this [invite](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot) into their server and experiance it to it's full potential. Want to go the extra mile and make it custom? Fllow the steps below.
 
-## Prerequisites
- - [**NodeJS**](https://nodejs.org/): >= 12.18.4
- - [**NPM**](https://www.npmjs.com/get-npm): >= 6.14.6
+## Installing Self-Hosted Version
 
-## Installation & Useage
-Azuri is open-source so you can host your own! If you want to customize something or just want a seocnd that's fine!
+Azuri is open-source, so you can host your own! If you want to customize something or just want a seocnd that's fine!
 
-To install and run follow these steps:
-  1. `npm install`
-  2. Edit `.env` with your `BOT_TOKEN`*¹ and other options
-  3. `node app.js` ***Note:*** DO **NOT** run via `index.js` the bot uses [sharding](https://discordjs.guide/sharding/) to allow scalability and is required to run through `app.js`
+### Via Docker (Recommended)
+
+#### Requirements:
+
+ - [Docker](https://www.docker.com/products/docker-desktop)
+ - Docker Compose (included with Docker Desktop for Windows or Mac)
+
+#### Installation and Usage
+
+ 1. Copy `azuri.sample.env` to `azuri.env`
+ 2. Edit `azuri.env` with your `BOT_TOKEN`*¹
+ 3. Run `docker-compose up -d`
 
 **¹ - This can be generated [here](https://discord.com/developers/applications) view a guide [here](https://discordpy.readthedocs.io/en/latest/discord.html)*
 
-## What's used
+### Direct Installation
+
+#### Requirements:
+ - [**NodeJS**](https://nodejs.org/): >= 12.18.4
+ - [**NPM**](https://www.npmjs.com/get-npm): >= 6.14.6
+
+#### Installation & Usage
+
+To install and run follow these steps:
+
+ 1. Copy `azuri.sample.env` to `src/.env`
+ 2. Change into the `src` directory
+ 3. Edit `.env` with your `BOT_TOKEN`*¹
+ 4. Run `npm ci`
+ 5. Run `node app.js` (***Note:*** DO **NOT** run via `index.js` the bot uses [sharding](https://discordjs.guide/sharding/) to allow scalability and is required to run through `app.js`)
+
+## Dependencies Used
+
 We use multiple packages to make sure the bot is the easiest to use and navigate for the end-user. 
 
 [Discord.JS](http://discord.js.org/) w/ [Opus](https://www.npmjs.com/package/@discordjs/opus) offical NodeJS library.

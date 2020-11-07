@@ -1,5 +1,5 @@
 const L = require('../locale/locales')
-const guildsData = require('../data/guilds.json');
+const guildsData = require('../persist/guilds.json');
 const fs = require('fs');
 const Discord = require('discord.js');
 require('dotenv').config();

@@ -1,10 +1,10 @@
 require('dotenv').config();
 const env = process.env;
 const Discord = require('discord.js');
-const guildData = require('./data/guilds.json');
 const fs = require('fs');
 const Utils = require('./utils/utils');
 const voiceCtl = require('./commands/join');
+const guildData = require('./persist/guilds.json');
 
 const client = new Discord.Client({
     autoReconnect: true
@@ -108,13 +108,11 @@ client.on('message', ( message ) => {
                 }
             }
 
-            
-
             cmd.execute(client, serverData, message, args);
         } catch (error) {
             console.log("Hit")
             Utils.logError(new Date(), error);
-            message.reply(`🚫 - Oops! Something went wrong. Please contact Ninja#4321 with refrence \`${new Date()}\``);
+            message.reply(`🚫 - Oops! Something went wrong. Please contact Ninja#4321 with reference \`${new Date()}\``);
         }
     }
 });
