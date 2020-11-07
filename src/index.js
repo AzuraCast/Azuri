@@ -34,7 +34,8 @@ guildData.forEach(guild => {
 client.on('ready', async () => {
     console.log(`Bot has Started`);
 
-    client.user.setActivity("The tunes", { type: "LISTENING" });
+    var prefix = env.DEFAULT_PREFIX;
+    client.user.setActivity("AzuraCast! " + prefix + "help to get started.", { type: "LISTENING" });
 
     guildData.forEach(servData => {
         if(!serverData.home) return;
@@ -110,7 +111,6 @@ client.on('message', ( message ) => {
 
             cmd.execute(client, serverData, message, args);
         } catch (error) {
-            console.log("Hit")
             Utils.logError(new Date(), error);
             message.reply(`🚫 - Oops! Something went wrong. Please contact Ninja#4321 with reference \`${new Date()}\``);
         }

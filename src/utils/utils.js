@@ -19,8 +19,11 @@ module.exports.padTime = (time) => {
 }
 
 module.exports.logError = (time, content) => {
-    fs.appendFile(`${env.LOG_DIR}`, `\n\n===============================================\n${time.toString()}\n${content}`, (err) => {
-        if(err) console.log(err);
-    })
-    console.log("New Log Created - " + env.LOG_DIR + time + ".txt")
+    if (env.LOG_PATH) {
+        fs.appendFile(`${env.LOG_PATH}`, `\n\n===============================================\n${time.toString()}\n${content}`, (err) => {
+            if(err) console.log(err);
+        })
+    }
+    
+    console.error(content);
 }

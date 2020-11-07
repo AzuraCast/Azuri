@@ -246,7 +246,7 @@ module.exports = {
             return message.reply(`📫 ${L._U(guildData.locale, 'set')}!`)
         } else {
 
-            var prefix = guildData.preifx ? guildData.preifx : env.DEFAULT_PREFIX
+            var prefix = guildData.prefix ? guildData.prefix : env.DEFAULT_PREFIX
 
             const settingEmbed = new Discord.MessageEmbed()
                 .setColor('#1f8df5')
@@ -273,8 +273,8 @@ module.exports = {
                         value: "Setup server locale",
                     },
                     { 
-                        name: `${prefix}settings preifx \`<preifx>\``,
-                        value: "Setup server prefix",
+                        name: `${prefix}settings prefix \`<preifx>\``,
+                        value: "Setup server bot commands prefix",
                     }
                 )
                 .setTimestamp();
