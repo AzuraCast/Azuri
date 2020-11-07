@@ -1,6 +1,6 @@
 {
   "name": "azuri",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A simple radio bot to connect AzuraCast and Discord",
   "main": "app.js",
   "scripts": {
