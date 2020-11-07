@@ -62,7 +62,7 @@ client.on('guildCreate', (guild) => {
         }
         guildData.push(data)
     
-        fs.writeFileSync('./data/guilds.json', JSON.stringify(guildData), (err) => {
+        fs.writeFileSync('./persist/guilds.json', JSON.stringify(guildData), (err) => {
             if (err) console.log(err);
             console.log("done")
         })

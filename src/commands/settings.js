@@ -23,7 +23,7 @@ module.exports = {
                     if(data.id === guildData.id) {
                         guildsData[id].url = args[0][1];
 
-                        fs.writeFile('./data/guilds.json', JSON.stringify(guildsData), (err, data) => {
+                        fs.writeFile('./persist/guilds.json', JSON.stringify(guildsData), (err, data) => {
                             if (err) { 
                                 console.log(err);
                                 logError(new Date(), err)
@@ -51,7 +51,7 @@ module.exports = {
 
                         guildsData[id].home = channel.id;
 
-                        fs.writeFile('./data/guilds.json', JSON.stringify(guildsData), (err, data) => {
+                        fs.writeFile('./persist/guilds.json', JSON.stringify(guildsData), (err, data) => {
                             if (err) { 
                                 console.log(err);
                                 logError(new Date(), err)
@@ -74,7 +74,7 @@ module.exports = {
                     if(data.id === guildData.id) {
                         guildsData[id].prefix = args[0][1];
 
-                        fs.writeFile('./data/guilds.json', JSON.stringify(guildsData), (err, data) => {
+                        fs.writeFile('./persist/guilds.json', JSON.stringify(guildsData), (err, data) => {
                             if (err) { 
                                 console.log(err);
                                 logError(new Date(), err)
@@ -95,7 +95,7 @@ module.exports = {
                     if(data.id === guildData.id) {
                         guildsData[id].api = args[0][1];
 
-                        fs.writeFile('./data/guilds.json', JSON.stringify(guildsData), (err, data) => {
+                        fs.writeFile('./persist/guilds.json', JSON.stringify(guildsData), (err, data) => {
                             if (err) { 
                                 console.log(err);
                                 logError(new Date(), err)
@@ -118,7 +118,7 @@ module.exports = {
                     if(data.id === guildData.id) {
                         guildsData[id].locale = args[0][1].toLowerCase();
 
-                        fs.writeFile('./data/guilds.json', JSON.stringify(guildsData), (err, data) => {
+                        fs.writeFile('./persist/guilds.json', JSON.stringify(guildsData), (err, data) => {
                             if (err) { 
                                 console.log(err);
                                 logError(new Date(), err)
@@ -141,7 +141,7 @@ module.exports = {
                     if(data.id === guildData.id) {
                         guildsData[id].timezone = args[0][1];
 
-                        fs.writeFile('./data/guilds.json', JSON.stringify(guildsData), (err, data) => {
+                        fs.writeFile('./persist/guilds.json', JSON.stringify(guildsData), (err, data) => {
                             if (err) { 
                                 console.log(err);
                                 logError(new Date(), err)
@@ -227,7 +227,7 @@ module.exports = {
             console.log("data2write")
             console.log(JSON.stringify(guildsData))
             
-            fs.writeFile('./data/guilds.json', JSON.stringify(guildsData), (err, data) => {
+            fs.writeFile('./persist/guilds.json', JSON.stringify(guildsData), (err, data) => {
                 if (err) { 
                     console.log(err);
                     logError(new Date(), err)
@@ -236,7 +236,7 @@ module.exports = {
                 console.log("Written new settings to file");
             });
 
-            fs.readFile('./data/guilds.json', "utf8", (err, data) => {
+            fs.readFile('./persist/guilds.json', "utf8", (err, data) => {
                 if(err) throw err;
 
                 console.log(data);
