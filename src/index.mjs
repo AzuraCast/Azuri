@@ -1,21 +1,24 @@
-require('dotenv').config();
-const env = process.env;
-const Discord = require('discord.js');
-const guildData = require('./data/guilds.json');
-const fs = require('fs');
-const prefix = '/';
-const Utils = require('./utils/utils');
-const voiceCtl = require('./commands/join');
+import dotenv from 'dotenv';
+import Discord from 'discord.js';
+import fs from 'fs';
+import * as Utils from './utils/utils.mjs';
+import * as GuildUtils from './utils/guilds.mjs';
+import voiceCtl from './commands/join.mjs';
+
+dotenv.config();
 
 const client = new Discord.Client({
     autoReconnect: true
 });
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-commandFiles.forEach(file => {
-    const command = require(`./commands/${file}`);
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.mjs'));
+
+commandFiles.forEach(async (file) => {
+    let commandObj = await import(`./commands/${file}`);
+    let command = commandObj.default;
+    
     client.commands.set(command.name, command);
     console.log(`Registered Command - ${command.name}`);
 
@@ -26,21 +29,21 @@ commandFiles.forEach(file => {
     };
 });
 
-let serverData = {};
-guildData.forEach(guild => {
-    serverData = guild;
-});
-
-
 client.on('ready', async () => {
     console.log(`Bot has Started`);
 
-    client.user.setActivity("The tunes", { type: "LISTENING" });
+    var prefix = process.env.DEFAULT_PREFIX;
+    var activityMessage = process.env.STATUS_MESSAGE.replace('{prefix}', prefix);
+    var activityType = process.env.ACTIVITY_TYPE;
+    var statusType = process.env.STATUS_TYPE;
+    client.user.setActivity(activityMessage, { type: activityType });
+    if(statusType) client.user.setStatus(statusType);
 
-    guildData.forEach(servData => {
+    let guildData = GuildUtils.loadGuildData();
+    guildData.forEach(serverData => {
         if(!serverData.home) return;
 
-        voiceCtl.execute(client, servData, "botHomeRoom");
+        voiceCtl.execute(client, serverData, "botHomeRoom");
     })
 });
 
@@ -49,31 +52,18 @@ client.on('guildDelete', (guild) => {
 })
 
 client.on('guildCreate', (guild) => {
-    if(guildData.find(serv => serv.id === guild.id)) {
-        return console.log(`The bot was added a returning guild: ${guild.name} (${guild.id})`);
-    } else {
-        data = {
-            "id": `${guild.id}`,
-            "timezone": "ETC/UTC",
-            "locale": "en",
-            "home": null,
-            "url": null,
-            "api": null,
-            "commands": {}
-        }
-        guildData.push(data)
+    GuildUtils.getForGuild(guild);
     
-        fs.writeFileSync('./data/guilds.json', JSON.stringify(guildData), (err) => {
-            if (err) console.log(err);
-            console.log("done")
-        })
-    
-        return console.log(`The bot was added to: ${guild.name} (${guild.id})`);
-    }
+    return console.log(`The bot was added to: ${guild.name} (${guild.id})`);
 })
 
 client.on('message', ( message ) => {
-    var prefix = env.DEFAULT_PREFIX;
+    if(message.author.bot) return;
+    if(!message.guild) return message.reply("⚠ - Sorry my DM's are closed!");
+
+    let serverData = GuildUtils.getForGuild(message.guild);
+
+    var prefix = process.env.DEFAULT_PREFIX;
     if(serverData.prefix) prefix = serverData.prefix;
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -86,7 +76,6 @@ client.on('message', ( message ) => {
         const cmd = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
         try {
-            if(!serverData) return message.reply("🚫 - Oh no! There's been an issue while setting up! Please run `/settings init`");
             
             var serverCommands = serverData.commands;
 
@@ -109,15 +98,12 @@ client.on('message', ( message ) => {
                 }
             }
 
-            
-
             cmd.execute(client, serverData, message, args);
         } catch (error) {
-            console.log("Hit")
             Utils.logError(new Date(), error);
-            message.reply(`🚫 - Oops! Something went wrong. Please contact Ninja#4321 with refrence \`${new Date()}\``);
+            message.reply(`🚫 - Oops! Something went wrong. Please contact Ninja#4321 with reference \`${new Date()}\``);
         }
     }
 });
 
-client.login(env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);

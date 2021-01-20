@@ -1,0 +1,16 @@
+version: '2.2'
+
+services:
+  azuri:
+    image: azuracast/azuri:latest
+    build:
+      context: .
+    env_file: azuri.env
+    volumes:
+     - ./src:/data
+     - azuri_persist:/data/persist
+     - azuri_node_modules:/data/node_modules
+
+volumes:
+  azuri_persist: {}
+  azuri_node_modules: {}

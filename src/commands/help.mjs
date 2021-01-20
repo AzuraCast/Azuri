@@ -1,9 +1,7 @@
-const Discord = require('discord.js');
-const L = require('../locale/locales');
-require('dotenv').config();
-const env = process.env;
+import Discord from 'discord.js';
+import * as L from '../locale/locales.mjs';
 
-module.exports = {
+export default {
     name: 'help',
     aliases: [
         'h'
@@ -11,11 +9,11 @@ module.exports = {
     private: false,
     description: L._U('en', 'desc_help'),
     execute: async (client, guildData, message, ...args) => {
-        commands = [];
+        let commands = [];
         client.commands.forEach(command => {
             if(command.devOnly) return; 
             
-            aliases = '';
+            let aliases = '';
             
             if(command.aliases) {
                 command.aliases.forEach(alias => {
@@ -28,12 +26,12 @@ module.exports = {
                 value: command.description
             })
         });
+
         const commandsEmbed = new Discord.MessageEmbed()
             .setColor('#1f8df5')
             .setTitle(`Azuri - ${L._U(guildData.locale, 'help')}`)
             .addFields(commands)
-            .setFooter(`${L._U(guildData.locale, 'created_by')} Ninja#4321 - Server Prefix ${guildData.preifx ? guildData.preifx : env.DEFAULT_PREFIX}`);
-
+            .setFooter(`${L._U(guildData.locale, 'created_by')} Ninja#4321 - Server Prefix ${guildData.preifx ? guildData.preifx : process.env.DEFAULT_PREFIX}`);
             
         try {
             message.author.send(commandsEmbed);

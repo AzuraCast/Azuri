@@ -1,6 +1,6 @@
-const L = require('../locale/locales')
+import * as L from '../locale/locales.mjs';
 
-module.exports = {
+export default {
     name: 'stats',
     aliases: [
         'stat',
@@ -13,4 +13,4 @@ module.exports = {
     execute: async (client, guildData, message, ...args) => {
         return message.reply(`${L._U(guildData.locale, 'bot_is_in')} **${client.guilds.cache.size}** ${L._U(guildData.locale, 'servers_serving')} **${client.users.cache.size}** ${L._U(guildData.locale, 'members')}`);
     }
-}
+};

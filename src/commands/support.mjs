@@ -1,7 +1,7 @@
-const Discord = require('discord.js');
-const L = require('../locale/locales')
+import Discord from 'discord.js';
+import * as L from '../locale/locales.mjs';
 
-module.exports = {
+export default {
     name: 'support',
     aliases: [
         'ticket',
@@ -17,10 +17,10 @@ module.exports = {
             .addFields(
                 { name: 'Discord', value: 'https://www.azuracast.com/discord', inline: true },
                 { name: `${L._U(guildData.locale, 'website')}`, value: 'https://www.azuracast.com/', inline: true },
-                { name: `${L._U(guildData.locale, 'invite')}`, value: 'https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=36718592&scope=bot' }
+                { name: `${L._U(guildData.locale, 'invite')}`, value: 'https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot' }
             )
             .setTimestamp();
 
         message.channel.send(supportEmbed)
     }
-}
+};

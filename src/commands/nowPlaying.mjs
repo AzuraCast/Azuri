@@ -1,8 +1,8 @@
-const Discord = require('discord.js');
-const axios = require('axios');
-const L = require('../locale/locales')
+import Discord from 'discord.js';
+import axios from 'axios';
+import * as L from '../locale/locales.mjs';
 
-module.exports = {
+export default {
     name: 'playing',
     aliases: [
         'np',
@@ -37,4 +37,4 @@ module.exports = {
                 message.reply(L._U('http_error'));
             })  
     }
-}
+};

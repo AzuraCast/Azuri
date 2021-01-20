@@ -1,9 +1,9 @@
-const Discord = require('discord.js');
-const Utils = require('../utils/utils');
-const axios = require('axios');
-const L = require('../locale/locales')
+import Discord from 'discord.js';
+import axios from 'axios';
+import * as L from '../locale/locales.mjs';
+import * as Utils from '../utils/utils.mjs';
 
-module.exports = {
+export default {
     name: 'recent',
     aliases: [
         'history',
@@ -48,4 +48,4 @@ module.exports = {
                     message.reply(L._U('http_error'));
                 })  
     }
-}
+};

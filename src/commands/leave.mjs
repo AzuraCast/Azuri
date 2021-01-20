@@ -1,7 +1,7 @@
-const voice = require('./join');
-const L = require('../locale/locales')
+import voice from './join.mjs';
+import * as L from '../locale/locales.mjs';
 
-module.exports = {
+export default {
     name: 'leave',
     aliases: [
         'l',
@@ -20,4 +20,4 @@ module.exports = {
 
         message.reply("👋");
     }
-}
+};

@@ -11,33 +11,55 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/AzuriApp.svg?style=social&label=Follow)](https://twitter.com/AzuriApp)
 [![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
 
-**Azuri** is a simple but powerful [Discord] bot to intergrate the open-source radio host [AzuraCast] within your [Discord] community.
+**Azuri** is a simple but powerful [Discord] bot to intergrate the open-source web radio management suite [AzuraCast] into your [Discord] community.
 
 ### Invite
 [![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)
 
-![Overview Photos](https://i.ninjalabs.dev/onbicck.png)
+![Overview Photos](https://i.ninjalabs.dev/0pds770.png)
 
-**Azuri** is currently in active development with new features and bugs fixed on the daily and is not a *final product* in any means. Azuri was created to support the new and up coming radio's that take use of [AzuraCast] and provide a platform to bride the gap from the community to the radio. 
+**Azuri** is currently in active development with new features and bugs fixed on the daily and is not a *final product* in any means. Azuri was created to support new radio's that use [AzuraCast] and provide a platform to connect the radio and community.
 
 ## Hosted or Self Hosted?
-**Azuri** is hosted allowing anyone to invite the bot using [Invite Link]([![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot)) into their server and experiance it to it's full potential. Want to go the extra mile and make it custom? Fllow the steps below.
+**Azuri** is hosted allowing anyone to invite the bot using this [invite](https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot) into their server and experiance it to it's full potential. Want to go the extra mile and make it custom? Fllow the steps below.
 
-## Prerequisites
- - [**NodeJS**](https://nodejs.org/): >= 12.18.4
- - [**NPM**](https://www.npmjs.com/get-npm): >= 6.14.6
+## Installing Self-Hosted Version
 
-## Installation & Useage
-Azuri is open-source so you can host your own! If you want to customize something or just want a seocnd that's fine!
+Azuri is open-source, so you can host your own! If you want to customize something or just want a seocnd that's fine!
 
-To install and run follow these steps:
-  1. `npm install`
-  2. Edit `.env` with your `BOT_TOKEN`*¹ and other options
-  3. `node app.js` ***Note:*** DO **NOT** run via `index.js` the bot uses [sharding](https://discordjs.guide/sharding/) to allow scalability and is required to run through `app.js`
+### Via Docker (Recommended)
+
+#### Requirements:
+
+ - [Docker](https://www.docker.com/products/docker-desktop)
+ - Docker Compose (included with Docker Desktop for Windows or Mac)
+
+#### Installation and Usage
+
+ 1. Copy `azuri.sample.env` to `azuri.env`
+ 2. Edit `azuri.env` with your `BOT_TOKEN`*¹
+ 3. Run `docker-compose up -d`
 
 **¹ - This can be generated [here](https://discord.com/developers/applications) view a guide [here](https://discordpy.readthedocs.io/en/latest/discord.html)*
 
-## What's used
+### Direct Installation
+
+#### Requirements:
+ - [**NodeJS**](https://nodejs.org/): >= 12.18.4
+ - [**NPM**](https://www.npmjs.com/get-npm): >= 6.14.6
+
+#### Installation & Usage
+
+To install and run follow these steps:
+
+ 1. Copy `azuri.sample.env` to `src/.env`
+ 2. Change into the `src` directory
+ 3. Edit `.env` with your `BOT_TOKEN`*¹
+ 4. Run `npm ci`
+ 5. Run `npm run azuri`
+
+## Dependencies Used
+
 We use multiple packages to make sure the bot is the easiest to use and navigate for the end-user. 
 
 [Discord.JS](http://discord.js.org/) w/ [Opus](https://www.npmjs.com/package/@discordjs/opus) offical NodeJS library.
@@ -50,8 +72,6 @@ We use multiple packages to make sure the bot is the easiest to use and navigate
 
 [fs](https://www.npmjs.com/package/fs) used for storing data in files
 
-[octonode](https://www.npmjs.com/package/octonode) used for version checking against Github
-
 *Dev Resources*
 
 [nodemon](https://www.npmjs.com/package/nodemon) hot reloading for development
@@ -59,14 +79,14 @@ We use multiple packages to make sure the bot is the easiest to use and navigate
 [eslint](https://www.npmjs.com/package/eslint) used for code functionaility and error checking
 
 ## Bug Reporting 
-Found a bug? [Report it](https://github.com/NinjaLabs-Dev/Azuri/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D+)!
+Found a bug? [Report it](https://github.com/AzuraCast/Azuri/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D+)!
 
-*Before reporting please check [Issues](https://github.com/NinjaLabs-Dev/Azuri/issues) and [Projects](https://github.com/NinjaLabs-Dev/Azuri/projects)*
+*Before reporting please check [Issues](https://github.com/AzuraCast/Azuri/issues) and [Projects](https://github.com/AzuraCast/Azuri/projects)*
 
 ## Feature Request
-Thought of a great idea? [Reuqest it](https://github.com/NinjaLabs-Dev/Azuri/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D)!
+Thought of a great idea? [Reuqest it](https://github.com/AzuraCast/Azuri/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D)!
 
-*Before requesting please check [Issues](https://github.com/NinjaLabs-Dev/Azuri/issues) and [Projects](https://github.com/NinjaLabs-Dev/Azuri/projects)*
+*Before requesting please check [Issues](https://github.com/AzuraCast/Azuri/issues) and [Projects](https://github.com/AzuraCast/Azuri/projects)*
 
 ## Support
 Azuri is provided free of charge but if you feel it's useful support us!
@@ -81,4 +101,4 @@ Azuri is provided free of charge but if you feel it's useful support us!
 
 ## License
 
-Azuri is licensed under the [Apache license, version 2.0](https://github.com/NinjaLabs-Dev/Azuri/blob/master/LICENSE.txt). This project is free and open-source software, pull requests are always welcome along with bug and feature reports/requests
+Azuri is licensed under the [Apache license, version 2.0](https://github.com/AzuraCast/Azuri/blob/master/LICENSE). This project is free and open-source software, pull requests are always welcome along with bug and feature reports/requests

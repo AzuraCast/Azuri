@@ -14,19 +14,19 @@
         "not_connected": "🎧 - Don't worry! I'm not connected.",
         "now_playing": "Now Playing",
         "http_error": "🚫 - There's been an issue getting that information! Try again.",
-        "stream_error": "🚫 - There was an issue starting the steam.",
+        "stream_error": "🚫 - There was an issue starting the stream.",
         "ping": "🏓 - Pong",
         "recent_tracks": "Recent Tracks",
         "generated_at": "Generated at",
         "bot_is_in": "The bot is currently in",
-        "servers_serving": "servers, servingm over",
+        "servers_serving": "servers, serving over",
         "members": "members",
         "support": "Support",
         "website": "Website",
         "currently": "Currently",
         "has": "has",
         "unique_listeners": "unique listeners.",
-        "missing_args": "🔎 - Oh No! You've missed some arguments. Try agian or use `/help`.",
+        "missing_args": "🔎 - Oh No! You've missed some arguments. Try again or use `~help`.",
         "set": "Set",
         "no_find_user": "⚠ - I couldn't located that user!",
         "no_find_role": "⚠ - I couldn't located that role!",
@@ -50,6 +50,7 @@
         "desc_tuned": "View current listener numbers.",
         "invite": "Discord Invite",
         "setting": "Settings",
-        "current_prefix": "The current prefix is"
+        "current_prefix": "The current prefix is",
+        "valid_translation": "Available Translations"
     }
 }

@@ -1,8 +1,8 @@
-const L = require('../locale/locales')
+import * as L from '../locale/locales.mjs';
 
 let connection, dispatcher, radioURL, voiceChannel;
 
-module.exports = {
+export default {
     name: 'join',
     aliases: [
         'j',
@@ -20,17 +20,13 @@ module.exports = {
                 connection = await channel.join();
             } catch (e) {
                 return message.reply(L._U(guildData.locale, 'no_join'));
-            };
+            }
     
             try {
                 dispatcher = connection.play(radioURL);  
             } catch (e) {
                 message.reply(L._U(guildData.locale, 'stream_error'));
             }
-    
-            module.exports.connection = connection;
-            module.exports.dispatcher = dispatcher;
-
             return;
         }
 
@@ -71,8 +67,5 @@ module.exports = {
         } catch (e) {
             message.reply(L._U(guildData.locale, 'stream_error'));
         }
-
-        module.exports.connection = connection;
-        module.exports.dispatcher = dispatcher;
     }
-}
+};
