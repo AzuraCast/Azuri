@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
     "ffmpeg-static": "^4.2.7",
