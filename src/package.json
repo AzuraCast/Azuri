@@ -1,35 +1,39 @@
 {
   "name": "azuri",
-  "version": "1.0.0",
-  "description": "A simple radio bot to connect AzuraCast and Discord",
-  "main": "app.js",
-  "type": "module",
+  "version": "2.0.0",
+  "description": "Discord bot to connect with AzuraCast",
+  "main": "index.mjs",
   "scripts": {
-    "azuri": "node app.mjs",
-    "test": "exit 0"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "AzuraCast",
-    "Discord",
-    "Bot",
-    "NodeJs"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/AzuraCast/Azuri.git"
+    "url": "git+https://github.com/AzuraCast/Azuri.git"
   },
-  "author": "NinjaLabs-Dev",
+  "keywords": [
+    "NodeJS",
+    "Discord.js",
+    "Azuri",
+    "Azuracast"
+  ],
+  "author": "Azuracast",
   "license": "MIT",
-  "dependencies": {
-    "@discordjs/opus": "^0.3.3",
-    "axios": "^0.21.0",
-    "discord.js": "^12.4.1",
-    "dotenv": "^8.2.0",
-    "ffmpeg-static": "^4.2.7",
-    "fs": "0.0.1-security"
+  "bugs": {
+    "url": "https://github.com/AzuraCast/Azuri/issues"
   },
-  "devDependencies": {
-    "eslint": "^7.12.1",
-    "nodemon": "^2.0.6"
+  "homepage": "https://github.com/AzuraCast/Azuri#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.6.0",
+    "asynckit": "^0.4.0",
+    "axios": "^0.21.1",
+    "callsites": "^4.0.0",
+    "combined-stream": "^1.0.8",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^4.4.0",
+    "fs": "^0.0.1-security",
+    "libsodium-wrappers": "^0.7.9",
+    "mime-types": "^2.1.32"
   }
 }

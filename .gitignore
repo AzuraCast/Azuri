@@ -3,3 +3,6 @@ log.txt
 azuri.env
 /src/persist/guilds.json
 /src/node_modules
+/src/.env
+node_modules
+src/package-lock.json
