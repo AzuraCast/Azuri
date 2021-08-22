@@ -2,8 +2,12 @@ FROM library/node:lts-alpine
 
 RUN apk update \
     && apk add bash python make g++ sudo
-RUN npm i -g n
-RUN n latest
+RUN apt-get install -y git-core curl build-essential openssl libssl-dev \
+ && git clone https://github.com/nodejs/node.git \
+ && cd node \
+ && ./configure \
+ && make \
+ && sudo make install
 RUN mkdir -p /data/node_modules
 
 COPY ./src /data
