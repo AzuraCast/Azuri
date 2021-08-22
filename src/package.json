@@ -2,7 +2,7 @@
   "name": "azuri",
   "version": "2.0.0",
   "description": "Discord bot to connect with AzuraCast",
-  "main": "index.mjs",
+  "main": "app.mjs",
   "scripts": {
     "azuri": "node app.mjs"
   },
