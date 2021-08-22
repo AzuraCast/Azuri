@@ -2,7 +2,7 @@ FROM library/node:lts-alpine
 
 RUN apk update \
     && apk add bash python make g++ sudo
-RUN apt-get install -y git-core curl build-essential openssl libssl-dev \
+RUN apt install -y git-core curl build-essential openssl libssl-dev \
  && git clone https://github.com/nodejs/node.git \
  && cd node \
  && ./configure \
