@@ -2,7 +2,9 @@ FROM library/node:lts-alpine
 
 RUN apk update \
     && apk add bash python make g++ sudo
-
+RUN sudo npm i -g n
+RUN sudo n latest
+RUN sudo PATH="$PATH"
 RUN mkdir -p /data/node_modules
 
 COPY ./src /data
@@ -21,9 +23,6 @@ USER node
 VOLUME /data/node_modules
 VOLUME /data/data/guilds.json
 
-RUN sudo npm i -g n
-RUN sudo n latest
-RUN sudo PATH="$PATH"
 
 # Define default command.
 ENTRYPOINT ["/build_entrypoint.sh"]
