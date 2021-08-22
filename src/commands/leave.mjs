@@ -7,15 +7,20 @@ export default {
   execute: async (client, guildData, message, ...args) => {
     if (!message.guild)
       return message.channel.send(L._U(guildData.locale, "server_only"));
-    if (!process.env.EVERYONE_LEAVE) {
+
+    if (
+      !message.channel.permissionsFor(message.member).has("MANAGE_GUILD") ||
+      !message.channel.permissionsFor(message.member).has("ADMINISTRATOR")
+    ) {
       if (
-        !message.channel.permissionsFor(message.member).has("MANAGE_GUILD") ||
-        !message.channel.permissionsFor(message.member).has("ADMINISTRATOR")
+        process.env.EVERYONE_LEAVE == false ||
+        process.env.EVERYONE_LEAVE == "false"
       )
         return message.channel.send(
           "❌ - Oh No! You've not got permission to use that!"
         );
     }
+
     if (!(await dv.getVoiceConnection(message.guild.id)))
       return message.channel.send(L._U(guildData.locale, "not_connected"));
 
