@@ -4,7 +4,7 @@
   "description": "Discord bot to connect with AzuraCast",
   "main": "index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "azuri": "node index.mjs"
   },
   "repository": {
     "type": "git",
