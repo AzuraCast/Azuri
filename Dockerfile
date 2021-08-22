@@ -21,6 +21,10 @@ USER node
 VOLUME /data/node_modules
 VOLUME /data/data/guilds.json
 
+RUN npm i -g n
+RUN n latest
+RUN PATH="$PATH"
+
 # Define default command.
 ENTRYPOINT ["/build_entrypoint.sh"]
 CMD ["npm", "run", "azuri"]
