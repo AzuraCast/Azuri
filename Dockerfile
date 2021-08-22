@@ -1,7 +1,7 @@
 FROM library/node:lts-alpine
 
 RUN apk update \
-    && apk add bash python make g++
+    && apk add bash python make g++ sudo
 
 RUN mkdir -p /data/node_modules
 
