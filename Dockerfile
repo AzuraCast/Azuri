@@ -4,7 +4,6 @@ RUN apk update \
     && apk add bash python make g++ sudo
 RUN npm i -g n
 RUN n latest
-RUN PATH="$PATH"
 RUN mkdir -p /data/node_modules
 
 COPY ./src /data
