@@ -2,9 +2,9 @@ FROM library/node:lts-alpine
 
 RUN apk update \
     && apk add bash python make g++ sudo
-RUN sudo npm i -g n
-RUN sudo n latest
-RUN sudo PATH="$PATH"
+RUN npm i -g n
+RUN n latest
+RUN PATH="$PATH"
 RUN mkdir -p /data/node_modules
 
 COPY ./src /data
