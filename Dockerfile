@@ -1,13 +1,8 @@
-FROM library/node:lts-alpine
+FROM library/node:16-alpine
 
 RUN apk update \
-    && apk add bash python make g++ sudo
-RUN apt install -y git-core curl build-essential openssl libssl-dev \
- && git clone https://github.com/nodejs/node.git \
- && cd node \
- && ./configure \
- && make \
- && sudo make install
+    && apk add bash python3 make g++
+
 RUN mkdir -p /data/node_modules
 
 COPY ./src /data
@@ -25,7 +20,6 @@ USER node
 
 VOLUME /data/node_modules
 VOLUME /data/data/guilds.json
-
 
 # Define default command.
 ENTRYPOINT ["/build_entrypoint.sh"]
