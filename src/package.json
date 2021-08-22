@@ -4,7 +4,7 @@
   "description": "Discord bot to connect with AzuraCast",
   "main": "index.mjs",
   "scripts": {
-    "azuri": "node index.mjs"
+    "azuri": "node app.mjs"
   },
   "repository": {
     "type": "git",
