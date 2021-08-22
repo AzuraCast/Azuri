@@ -21,9 +21,9 @@ USER node
 VOLUME /data/node_modules
 VOLUME /data/data/guilds.json
 
-RUN npm i -g n
-RUN n latest
-RUN PATH="$PATH"
+RUN sudo npm i -g n
+RUN sudo n latest
+RUN sudo PATH="$PATH"
 
 # Define default command.
 ENTRYPOINT ["/build_entrypoint.sh"]
