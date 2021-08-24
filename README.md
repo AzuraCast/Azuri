@@ -57,7 +57,7 @@ Azuri is open-source, so you can host your own! Perfect if you want to customize
 
 #### Requirements:
 
-- [**NodeJS**](https://nodejs.org/): >= 12.18.4
+- [**NodeJS**](https://nodejs.org/): >= 16.6.0
 - [**NPM**](https://www.npmjs.com/get-npm): >= 6.14.6
 
 #### Installation
