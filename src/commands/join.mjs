@@ -38,7 +38,8 @@ export default {
         const connection = dv.getVoiceConnection(channel.guild.id);
         player = dv.createAudioPlayer();
         dispatcher = connection.subscribe(player);
-        const resource = dv.createAudioResource(radioURL);
+        request(radioURL).pipe(fs.createWriteStream(`${channel.guild.id}live.mp3`));
+        const resource = dv.createAudioResource(`./${channel.guild.id}live.mp3`);
         player.play(resource);
       } catch (e) {
         try {
