@@ -1,5 +1,6 @@
 import * as L from "../locale/locales.mjs";
 import dv from "@discordjs/voice";
+import request from 'request';
 let radioURL, voiceChannel, dispatcher, player;
 
 export default {
