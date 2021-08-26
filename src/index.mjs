@@ -137,4 +137,10 @@ client.on("messageCreate", (message) => {
   }
 });
 
+global.sleep = (ms) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+};
+
 client.login(process.env.BOT_TOKEN);
