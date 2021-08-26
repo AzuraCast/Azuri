@@ -109,7 +109,7 @@ export default {
       connection.subscribe(player);
       const resource = dv.createAudioResource(radioURL);
       message.channel.send(
-        "Please wait a few seconds while the stream is being startec..."
+        "Please wait a few seconds while the stream is being started..."
       );
       await sleep(10000);
       player.play(resource);
