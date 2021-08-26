@@ -1,7 +1,7 @@
 import * as L from "../locale/locales.mjs";
-import fs from "fs";
 import dv from "@discordjs/voice";
-import request from 'request';
+import ffmpeg from "ffmpeg";
+import fs from "fs";
 let radioURL, voiceChannel, dispatcher, player;
 
 export default {
@@ -40,8 +40,8 @@ export default {
         const connection = dv.getVoiceConnection(channel.guild.id);
         player = dv.createAudioPlayer();
         dispatcher = connection.subscribe(player);
-        request(radioURL).pipe(fs.createWriteStream(`${channel.guild.id}live.mp3`));
-        const resource = dv.createAudioResource(`./${channel.guild.id}live.mp3`);
+        const resource = dv.createAudioResource(radioURL);
+        await sleep(10000);
         player.play(resource);
       } catch (e) {
         try {
@@ -108,6 +108,10 @@ export default {
       player = dv.createAudioPlayer();
       connection.subscribe(player);
       const resource = dv.createAudioResource(radioURL);
+      message.channel.send(
+        "Please wait a few seconds while the stream is being startec..."
+      );
+      await sleep(10000);
       player.play(resource);
     } catch (e) {
       console.log(e);
