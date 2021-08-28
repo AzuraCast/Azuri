@@ -41,7 +41,7 @@ export default {
         player = dv.createAudioPlayer();
         dispatcher = connection.subscribe(player);
         const resource = dv.createAudioResource(radioURL);
-        await sleep(10000);
+        await sleep(1000 * process.env.delay);
         player.play(resource);
       } catch (e) {
         try {
@@ -111,7 +111,7 @@ export default {
       message.channel.send(
         "Please wait a few seconds while the stream is being started..."
       );
-      await sleep(10000);
+      await sleep(1000 * process.env.delay);
       player.play(resource);
     } catch (e) {
       console.log(e);
