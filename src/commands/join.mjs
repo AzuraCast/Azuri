@@ -29,9 +29,8 @@ export default {
           return message.channel.send(L._U(guildData.locale, "no_join"));
         } catch (e) {
           if (guildData.home) {
-          client.channels.cache
-            .get(guildData.home)
-            .guild.channels.cache.filter((c) => c.type === "GUILD_TEXT")
+          let s = client.channels.cache.get(guildData.home)
+            if (s) s.guild.channels.cache.filter((c) => c.type === "GUILD_TEXT")
             .find((x) => x.position == 0)
             .send(L._U(guildData.locale, "no_join"));
           }
