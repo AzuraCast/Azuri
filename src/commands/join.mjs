@@ -52,11 +52,12 @@ export default {
           console.log(e);
           message.channel.send(L._U(guildData.locale, "stream_error"));
         } catch (e) {
-          client.channels.cache
-            .get(guildData.home)
-            .guild.channels.cache.filter((c) => c.type === "GUILD_TEXT")
+          if (guildData.home) {
+          let s = client.channels.cache.get(guildData.home)
+            if (s) s.guild.channels.cache.filter((c) => c.type === "GUILD_TEXT")
             .find((x) => x.position == 0)
             .send(L._U(guildData.locale, "stream_error"));
+          }
         }
       }
       return;
