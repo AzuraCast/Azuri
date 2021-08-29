@@ -44,7 +44,7 @@ export default {
         const resource = dv.createAudioResource(radioURL);
         await sleep(5000)
         player.play(resource);
-        player.on(dv.AudioPlayerStatus.Idle, () => {
+        player.on(dv.AudioPlayerStatus.Idle, async () => {
           const newResource = dv.createAudioResource(radioURL);
           await sleep(5000)
           player.play(newResource);
@@ -117,7 +117,7 @@ export default {
       const resource = dv.createAudioResource(radioURL);
       await sleep(5000)
       player.play(resource);
-      player.on(dv.AudioPlayerStatus.Idle, () => {
+      player.on(dv.AudioPlayerStatus.Idle, async () => {
         const newResource = dv.createAudioResource(radioURL);
         await sleep(5000)
         player.play(newResource);
