@@ -41,8 +41,11 @@ export default {
         player = dv.createAudioPlayer();
         dispatcher = connection.subscribe(player);
         const resource = dv.createAudioResource(radioURL);
-        await sleep(1000 * process.env.delay);
         player.play(resource);
+        player.on(dv.AudioPlayerStatus.Idle, () => {
+          const newResource = dv.createAudioResource(radioURL);
+          player.play(newResource);
+        });
       } catch (e) {
         try {
           console.log(e);
@@ -108,11 +111,11 @@ export default {
       player = dv.createAudioPlayer();
       connection.subscribe(player);
       const resource = dv.createAudioResource(radioURL);
-      message.channel.send(
-        "Please wait a few seconds while the stream is being started..."
-      );
-      await sleep(1000 * process.env.delay);
       player.play(resource);
+      player.on(dv.AudioPlayerStatus.Idle, () => {
+        const newResource = dv.createAudioResource(radioURL);
+        player.play(newResource);
+      });
     } catch (e) {
       console.log(e);
       message.channel.send(L._U(guildData.locale, "stream_error"));
