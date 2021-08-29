@@ -42,9 +42,11 @@ export default {
         player = dv.createAudioPlayer();
         dispatcher = connection.subscribe(player);
         const resource = dv.createAudioResource(radioURL);
+        await sleep(5000)
         player.play(resource);
         player.on(dv.AudioPlayerStatus.Idle, () => {
           const newResource = dv.createAudioResource(radioURL);
+          await sleep(5000)
           player.play(newResource);
         });
       } catch (e) {
@@ -113,9 +115,11 @@ export default {
       player = dv.createAudioPlayer();
       connection.subscribe(player);
       const resource = dv.createAudioResource(radioURL);
+      await sleep(5000)
       player.play(resource);
       player.on(dv.AudioPlayerStatus.Idle, () => {
         const newResource = dv.createAudioResource(radioURL);
+        await sleep(5000)
         player.play(newResource);
       });
     } catch (e) {
