@@ -37,6 +37,7 @@ export default {
       }
 
       try {
+        if (!channel) return;
         const connection = dv.getVoiceConnection(channel.guild.id);
         player = dv.createAudioPlayer();
         dispatcher = connection.subscribe(player);
