@@ -16,7 +16,7 @@ export default {
       let channel = client.channels.cache.get(guildData.home);
       try {
         if (!client.voice.channel)
-          global.connection = await dv.joinVoiceChannel({
+          if (channel) global.connection = await dv.joinVoiceChannel({
             channelId: channel.id,
             guildId: channel.guild.id,
             selfMute: false,
@@ -24,7 +24,6 @@ export default {
             adapterCreator: channel.guild.voiceAdapterCreator,
           });
       } catch (e) {
-        console.log(e);
         try {
           return message.channel.send(L._U(guildData.locale, "no_join"));
         } catch (e) {
