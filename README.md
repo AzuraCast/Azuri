@@ -87,13 +87,13 @@ We use multiple packages to make sure Azuri is easy to use and navigate for the 
 
 ## Bug Reporting
 
-Found a bug? [Report it](https://github.com/AzuraCast/Azuri/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D+)!
+Found a bug? [Report it](https://github.com/TwixGamer00/Azuri/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D+)!
 
 \* _before reporting please check for existing [issues](https://github.com/AzuraCast/Azuri/issues)_ <!-- and [Projects](https://github.com/AzuraCast/Azuri/projects)-->
 
 ## Feature Request
 
-Thought of a great idea? [Request it](https://github.com/AzuraCast/Azuri/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D)!
+Thought of a great idea? [Request it](https://github.com/TwixGamer00/Azuri/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D)!
 
 \* _before requesting please check for existing [issues](https://github.com/AzuraCast/Azuri/issues)_ <!-- and [Projects](https://github.com/AzuraCast/Azuri/projects)-->
 
@@ -109,4 +109,4 @@ Azuri is provided free of charge — but if you find it useful, support us and A
 
 ## License
 
-Azuri is licensed under the [Apache License, version 2.0](https://github.com/AzuraCast/Azuri/blob/master/LICENSE). This project is free and open-source software; pull requests are always welcome along with bug and feature reports/requests.
+Azuri is licensed under the [Apache License, version 2.0](https://github.com/TwixGamer00/Azuri/blob/master/LICENSE). This project is free and open-source software; pull requests are always welcome along with bug and feature reports/requests.
