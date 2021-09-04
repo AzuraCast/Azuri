@@ -1,7 +1,7 @@
 [azuracast]: (https://www.azuracast.com/)
 [discord]: (https://discord.com)
 
-![Azuri Logo](https://i.ninjalabs.dev/hdcgwht.png)
+![Azuri Logo](https://cdn.discordapp.com/attachments/774409028020338718/883257384187863050/Azuri_Icon.png)
 
 # Azuri: A [Discord] bot for [AzuraCast]
 
