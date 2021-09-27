@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
   azuri:
-    image: azuracast/azuri:latest
+    image: azuri:latest
     build:
       context: .
     env_file: azuri.env
