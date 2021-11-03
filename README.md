@@ -26,6 +26,8 @@ Azuri is currently in active development with new features and bugs fixed on the
 
 [![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=814434268762603551&permissions=0&scope=bot)
 
+If you have any problems just make an issue
+
 ## Commands & Usage
 
 Use `~help` to view available commands adding the bot to your server.
