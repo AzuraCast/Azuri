@@ -32,6 +32,10 @@ If you have any problems just make an issue
 
 Use `~help` to view available commands adding the bot to your server.
 
+To setup the api you need this
+
+https://yourazuradomain.com/api/nowplaying_static/STATIONNAME.json
+
 ## Hosted or Self-Hosted?
 
 Azuri has **both**! We have it hosted, allowing anyone to invite the bot using this [invite](https://discord.com/api/oauth2/authorize?client_id=814434268762603551&permissions=0&scope=bot) into their server and experience Azuri to its full potential. Want to go the extra mile and make it self-host it for the custom experience? Follow the steps below.
