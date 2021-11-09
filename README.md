@@ -32,9 +32,9 @@ If you have any problems just make an issue
 
 Use `~help` to view available commands adding the bot to your server.
 
-To setup the api you need this
+To setup the api you need this:
 
-https://yourazuradomain.com/api/nowplaying_static/STATIONNAME.json
+``https://yourazuradomain.com/api/nowplaying_static/STATIONNAME.json``
 
 ## Hosted or Self-Hosted?
 
