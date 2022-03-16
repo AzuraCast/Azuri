@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AzuraCast/Azuri.git"
+    "url": "git+https://github.com/TwixGamer00/Azuri.git"
   },
   "keywords": [
     "NodeJS",
@@ -19,9 +19,9 @@
   "author": "Azuracast",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AzuraCast/Azuri/issues"
+    "url": "https://github.com/TwixGamer00/Azuri/issues"
   },
-  "homepage": "https://github.com/AzuraCast/Azuri#readme",
+  "homepage": "https://github.com/TwixGamer00/Azuri#readme",
   "dependencies": {
     "@discordjs/voice": "^0.6.0",
     "asynckit": "^0.4.0",
