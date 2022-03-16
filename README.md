@@ -20,11 +20,16 @@ Azuri is a simple but powerful [Discord](https://discord.com/) bot to integrate 
 ![Overview Photos](https://i.ninjalabs.dev/0pds770.png)
 -->
 
-Azuri is currently in active development with new features and bugs fixed on the daily and is not a _final product_ by any means. Azuri was created to support new radios that use [AzuraCast], and provide a platform to connect the radio and community.
+Azuri was created to support new radios that use [AzuraCast], and provide a platform to connect the radio and community.
 
 ### Discord Invite Link
 
 [![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=814434268762603551&permissions=0&scope=bot)
+
+## Support?
+Join our discord group for free support also for other things then Azuri, need even faster support open a ticket!
+
+[![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/5t3KaGX8Bx)
 
 If you have any problems just make an issue
 
@@ -103,15 +108,6 @@ Thought of a great idea? [Request it](https://github.com/TwixGamer00/Azuri/issue
 
 \* _before requesting please check for existing [issues](https://github.com/AzuraCast/Azuri/issues)_ <!-- and [Projects](https://github.com/AzuraCast/Azuri/projects)-->
 
-## Support
-
-Azuri is provided free of charge — but if you find it useful, support us and AzuraCast!
-
-
-
-### AzuraCast
-
-[Support AzuraCast here!](https://github.com/AzuraCast/AzuraCast/blob/master/README.md#support-azuracast-development)
 
 ## License
 
