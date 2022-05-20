@@ -131,7 +131,7 @@ client.on("messageCreate", (message) => {
     } catch (error) {
       Utils.logError(new Date(), error);
       message.channel.send(
-        `🚫 - Oops! Something went wrong. Please contact Ninja#4321 with reference \`${new Date()}\``
+        `🚫 - Oops! Something went wrong. Please contact Finniedj.exe#9075 or TWIXGAMER#1372 with reference \`${new Date()}\``
       );
     }
   }
