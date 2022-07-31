@@ -13,18 +13,18 @@ export default {
       .addFields(
         {
           name: "Discord",
-          value: "https://www.azuracast.com/discord",
+          value: "https://discord.com/invite/5t3KaGX8Bx",
           inline: true,
         },
         {
-          name: `${L._U(guildData.locale, "website")}`,
+          name: `${L._U(guildData.locale, "Azuracast Website")}`,
           value: "https://www.azuracast.com/",
           inline: true,
         },
         {
           name: `${L._U(guildData.locale, "invite")}`,
           value:
-            "https://discord.com/api/oauth2/authorize?client_id=773671716529504267&permissions=3411008&scope=bot",
+            "https://discord.com/oauth2/authorize?client_id=814434268762603551&permissions=0&scope=bot",
         }
       )
       .setTimestamp();
