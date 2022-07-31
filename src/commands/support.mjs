@@ -17,7 +17,7 @@ export default {
           inline: true,
         },
         {
-          name: `${L._U(guildData.locale, "Azuracast Website")}`,
+          name: `${L._U(guildData.locale, "website")}`,
           value: "https://www.azuracast.com/",
           inline: true,
         },
