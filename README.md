@@ -36,7 +36,7 @@ If you have any problems just make an issue
 
 ## Commands & Usage
 
-Use `~help` to view available commands adding the bot to your server.
+Use `/help` to view available commands adding the bot to your server.
 
 To setup the api you need this:
 
@@ -61,8 +61,8 @@ Azuri is open-source, so you can host your own! Perfect if you want to customize
 
 #### Installation and Usage
 
-1.  Copy `azuri.sample.env` to `azuri.env`
-2.  Edit `azuri.env` with your Discord `BOT_TOKEN`
+1.  Copy `sample.env` to `.env`
+2.  Edit `.env` with your Discord `BOT_TOKEN` and `ClientID`
 3.  Run `docker-compose up -d`
 
 ### Direct Installation
@@ -76,11 +76,12 @@ Azuri is open-source, so you can host your own! Perfect if you want to customize
 
 To install and run:
 
-1.  Copy `azuri.sample.env` to `src/.env`
+1.  Copy `sample.env` to `src/.env`
 2.  Change into the `src` directory
-3.  Edit `.env` with your Discord `BOT_TOKEN`
+3.  Edit `.env` with your Discord `BOT_TOKEN` `and ClientID`
 4.  Run `npm ci`
-5.  Run `npm run azuri`
+5.  Run `npm run deploy`
+6.  Run `npm run azuri`
 
 ## Dependencies Used
 

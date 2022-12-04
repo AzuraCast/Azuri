@@ -5,7 +5,7 @@ services:
     image: azuri:latest
     build:
       context: .
-    env_file: azuri.env
+    env_file: .env
     volumes:
      - ./src:/data
      - azuri_persist:/data/persist
