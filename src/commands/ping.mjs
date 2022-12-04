@@ -1,12 +1,12 @@
 import * as L from "../locale/locales.mjs";
+import Discord from "discord.js";
 
 export default {
-  name: "ping",
-  description: L._U("en", "desc_ping"),
-  private: false,
-  execute: async (client, guildData, message, ...args) => {
-    message.channel.send(
-      `${L._U(guildData.locale, "ping")} ${client.ws.ping}ms`
-    );
+  data: new Discord.SlashCommandBuilder()
+    .setDMPermission(false)
+    .setName("ping")
+    .setDescription(L._U("en", "desc_ping")),
+  async execute(interaction, client, guildData) {
+    interaction.reply(`${L._U(guildData.locale, "ping")} ${client.ws.ping}ms`);
   },
 };

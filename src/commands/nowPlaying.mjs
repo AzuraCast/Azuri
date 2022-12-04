@@ -3,23 +3,33 @@ import axios from "axios";
 import * as L from "../locale/locales.mjs";
 
 export default {
-  name: "playing",
-  aliases: ["np", "nowplaying", "current", "song"],
-  private: false,
-  description: L._U("en", "desc_nowPlaying"),
-  execute: async (client, guildData, message, ...args) => {
-    if (!message.guild)
-      return message.channel.send(L._U(guildData.locale, "server_only"));
+  data: new Discord.SlashCommandBuilder()
+    .setDMPermission(false)
+    .setName("nowplaying")
+    .setDescription(L._U("en", "desc_nowPlaying")),
+  async execute(interaction, client, guildData) {
+    if (!interaction.guild)
+      return interaction.reply({
+        content: L._U(guildData.locale, "server_only"),
+        ephemeral: true,
+      });
 
     if (!guildData.url)
-      return message.channel.send(L._U(guildData.locale, "no_radio_api"));
+      return interaction.reply({
+        content: L._U(guildData.locale, "no_radio_api"),
+        ephemeral: true,
+      });
     if (!guildData.api)
-      return message.channel.send(L._U(guildData.locale, "no_radio_api"));
+      return interaction.reply({
+        content: L._U(guildData.locale, "no_radio_api"),
+        ephemeral: true,
+      });
 
-    axios
+    await interaction.deferReply();
+    await axios
       .get(guildData.api)
       .then((res) => {
-        const nowPlayingEmbed = new Discord.MessageEmbed()
+        const nowPlayingEmbed = new Discord.EmbedBuilder()
           .setColor("#1f8df5")
           .setTitle(
             `${res.data.station.name} - ${L._U(
@@ -33,11 +43,14 @@ export default {
           })
           .setThumbnail(res.data.now_playing.song.art)
           .setTimestamp();
-        message.channel.send({ embeds: [nowPlayingEmbed] });
+
+        interaction.editReply({ content: "", embeds: [nowPlayingEmbed] });
       })
       .catch((err) => {
-        console.log(err);
-        message.channel.send(L._U("http_error"));
+        interaction.editReply({
+          content: L._U(guildData.locale, "http_error"),
+          ephemeral: true,
+        });
       });
   },
 };

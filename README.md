@@ -5,13 +5,46 @@
 
 # Azuri: A [Discord] bot for [AzuraCast]
 
+<!--[![Build Status](https://travis-ci.com/NinjaLabs-Dev/Azuri.svg?branch=master)](https://travis-ci.com/NinjaLabs-Dev/Azuri)-->
+
+[![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=814434268762603551&permissions=0&scope=bot)
 [![Apache 2.0 License](https://img.shields.io/github/license/azuracast/azuracast.svg)]()
 [![Ethical Open Source](https://img.shields.io/badge/open-ethical-%234baaaa)](https://ethicalsource.dev/definition/)
 [![DeepScan grade](https://deepscan.io/api/teams/11651/projects/14572/branches/274342/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11651&pid=14572&bid=274342)
 
+<!--[![Twitter Follow](https://img.shields.io/twitter/follow/AzuriApp.svg?style=social&label=Follow)](https://twitter.com/AzuriApp)-->
+
 Azuri is a simple but powerful [Discord](https://discord.com/) bot to integrate the open-source web radio management suite **[AzuraCast](https://azuracast.com)** into your [Discord] community.
 
-Azuri is currently in active development with new features and bugs fixed on the daily and is not a _final product_ by any means. Azuri was created to support new radios that use [AzuraCast], and provide a platform to connect the radio and community.
+<!-- remove overview photo since it is dead
+![Overview Photos](https://i.ninjalabs.dev/0pds770.png)
+-->
+
+Azuri was created to support new radios that use [AzuraCast], and provide a platform to connect the radio and community.
+
+### Discord Invite Link
+
+[![Invite Image](https://img.shields.io/badge/Invite-Invite%20the%20bot-blue)](https://discord.com/api/oauth2/authorize?client_id=814434268762603551&permissions=0&scope=bot)
+
+## Support?
+
+Join our discord group for free support also for other things then Azuri, need even faster support open a ticket!
+
+[![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/5t3KaGX8Bx)
+
+If you have any problems just make an issue
+
+## Commands & Usage
+
+Use `~help` to view available commands adding the bot to your server.
+
+To setup the api you need this:
+
+`https://yourazuradomain.com/api/nowplaying_static/STATIONNAME.json`
+
+## Hosted or Self-Hosted?
+
+Azuri has **both**! We have it hosted, allowing anyone to invite the bot using this [invite](https://discord.com/api/oauth2/authorize?client_id=814434268762603551&permissions=0&scope=bot) into their server and experience Azuri to its full potential. Want to go the extra mile and make it self-host it for the custom experience? Follow the steps below.
 
 ## Installing Self-Hosted Version
 

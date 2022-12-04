@@ -6,7 +6,13 @@ import * as GuildUtils from "./utils/guilds.mjs";
 import voiceCtl from "./commands/join.mjs";
 
 dotenv.config();
-let intents = new Discord.Intents(32767);
+let intents = [
+  Discord.GatewayIntentBits.Guilds,
+  Discord.GatewayIntentBits.GuildMessages,
+  Discord.GatewayIntentBits.MessageContent,
+  Discord.GatewayIntentBits.GuildMembers,
+  Discord.GatewayIntentBits.GuildVoiceStates,
+];
 const client = new Discord.Client({
   autoReconnect: true,
   intents,
@@ -22,14 +28,8 @@ commandFiles.forEach(async (file) => {
   let commandObj = await import(`./commands/${file}`);
   let command = commandObj.default;
 
-  client.commands.set(command.name, command);
-  console.log(`Registered Command - ${command.name}`);
-
-  if (command.aliases) {
-    command.aliases.forEach((alias) => {
-      client.aliases.set(alias, command);
-    });
-  }
+  client.commands.set(command.data.toJSON().name, command);
+  console.log(`Registered Command - ${command.data.toJSON().name}`);
 });
 
 client.on("ready", async () => {
@@ -47,7 +47,7 @@ client.on("ready", async () => {
   guildData.forEach((serverData) => {
     if (!serverData.home) return;
 
-    voiceCtl.execute(client, serverData, "botHomeRoom");
+    voiceCtl.execute("botHomeRoom", client, serverData);
   });
 });
 
@@ -75,7 +75,7 @@ client.on("messageCreate", (message) => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const commandName = args.shift().toLowerCase();
 
-  if (!client.commands.has(commandName) && !client.aliases.has(commandName)) {
+  /*if (!client.commands.has(commandName) && !client.aliases.has(commandName)) {
     return;
   } else {
     const cmd =
@@ -134,6 +134,31 @@ client.on("messageCreate", (message) => {
         `🚫 - Oops! Something went wrong. Please contact Finniedj.exe#9075 or TWIXGAMER#1372 with reference \`${new Date()}\``
       );
     }
+  }*/
+});
+
+client.on(Discord.Events.InteractionCreate, async (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+
+  const command = client.commands.get(interaction.commandName);
+
+  if (!command) {
+    console.error(
+      `🚫 - Oops! Something went wrong \n No command matching ${interaction.commandName} was found.`
+    );
+    return;
+  }
+
+  let guildData = GuildUtils.getForGuild(interaction.guild);
+  try {
+    await command.execute(interaction, client, guildData);
+  } catch (error) {
+    console.error(error);
+    Utils.logError(new Date(), error);
+    interaction.reply({
+      content: `🚫 - Oops! Something went wrong. Please contact Finniedj.exe#9075 or TWIXGAMER#1372 with reference \`${new Date()}\``,
+      ephemeral: true,
+    });
   }
 });
 
